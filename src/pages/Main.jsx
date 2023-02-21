@@ -7,10 +7,13 @@ import snow from "../assets/snow.jpg";
 import { useWeatherContext } from "../hooks/ContextHook";
 
 const Main = () => {
-  const { returnedVal } = useWeatherContext();
+  const { returnedVal, loadError } = useWeatherContext();
   return (
     <div className="h-full w-full relative flex">
       <div className="absolute -z-10 h-full w-full">
+        {loadError && (
+          <img src={snow} className="object-cover" alt="Background" />
+        )}
         {returnedVal?.current.temp_c <= 5 && (
           <img src={snow} className="object-cover" alt="Background" />
         )}

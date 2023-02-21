@@ -1,15 +1,14 @@
 import "./App.css";
 import React from "react";
 import { Routes, Route } from "react-router-dom";
-import Home from "./pages/Home";
+
 import Main from "./pages/Main";
 
 function App() {
   return (
     <div className="h-screen w-screen">
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/main" element={<Main />} />
+        <Route path="/" element={<Main />} />
       </Routes>
     </div>
   );

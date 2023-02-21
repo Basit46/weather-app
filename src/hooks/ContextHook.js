@@ -7,6 +7,7 @@ const ContextHook = ({ children }) => {
   const [inputVal, setInputVal] = useState("");
   const [returnedVal, setReturnedVal] = useState();
   const [searchedLoc, setSearchedLoc] = useState();
+  const [loadError, setLoadError] = useState(false);
 
   const storedVal = localStorage.getItem("prevSearches")
     ? JSON.parse(localStorage.getItem("prevSearches"))
@@ -23,10 +24,14 @@ const ContextHook = ({ children }) => {
         `http://api.weatherapi.com/v1/current.json?key=cfaf7c3504234c8bb7d142654231402&q=london&aqi=no`
       )
       .then((res) => {
+        setLoadError(false);
         setReturnedVal(res.data);
         setSearchedLoc("London");
       })
-      .catch((err) => console.log(err.message));
+      .catch((err) => {
+        console.log(err.message);
+        setLoadError(true);
+      });
   }, []);
 
   const handleSubmit = (e) => {
@@ -39,6 +44,7 @@ const ContextHook = ({ children }) => {
           `http://api.weatherapi.com/v1/current.json?key=cfaf7c3504234c8bb7d142654231402&q=${inputVal.toLowerCase()}&aqi=no`
         )
         .then((res) => {
+          setLoadError(false);
           setReturnedVal(res.data);
           setSearchedLoc(inputVal);
           setPrevSearches([
@@ -46,7 +52,10 @@ const ContextHook = ({ children }) => {
             ...prevSearches,
           ]);
         })
-        .catch((err) => console.log(err.message));
+        .catch((err) => {
+          console.log(err.message);
+          setLoadError(true);
+        });
 
       setInputVal("");
     }
@@ -58,10 +67,14 @@ const ContextHook = ({ children }) => {
         `http://api.weatherapi.com/v1/current.json?key=cfaf7c3504234c8bb7d142654231402&q=${loc.toLowerCase()}&aqi=no`
       )
       .then((res) => {
+        setLoadError(false);
         setReturnedVal(res.data);
         setSearchedLoc(loc);
       })
-      .catch((err) => console.log(err.message));
+      .catch((err) => {
+        console.log(err.message);
+        setLoadError(true);
+      });
   };
 
   return (
@@ -74,6 +87,7 @@ const ContextHook = ({ children }) => {
         searchedLoc,
         prevSearches,
         handleClickedLoc,
+        loadError,
       }}
     >
       {children}
