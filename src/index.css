@@ -2,18 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-/* html,
-body {
-  height: 100vh;
-  width: 100vw;
-  overflow-x: hidden;
-  overflow-y: auto;
-} */
-
-* {
-  font-family: Arial, Helvetica, sans-serif;
-}
-
 @layer components {
   .details .detail-wrap .detail {
     @apply w-full flex justify-between mt-[30px];
@@ -21,4 +9,8 @@ body {
   .details .detail-wrap .detail .name {
     @apply text-white/60;
   }
+}
+
+* {
+  font-family: Arial, Helvetica, sans-serif;
 }
