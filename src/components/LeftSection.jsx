@@ -5,9 +5,9 @@ const LeftSection = () => {
   const { returnedVal, searchedLoc } = useWeatherContext();
 
   return (
-    <div className="w-[65%] flex flex-col justify-between px-[80px] py-[40px] text-white">
+    <div className="w-full md:w-[55%] lg:w-[65%] flex flex-col justify-between px-[10px] sm:px-[80px] py-[20px] sm:py-[40px] text-white">
       <p>weather.App</p>
-      <div className="mb-[40px] flex items-end space-x-[20px]">
+      <div className="mb-[40px] flex items-end space-x-[20px] text-[tomato]">
         <p className="text-[5rem] leading-none">
           {Math.round(returnedVal?.current.temp_c) < 10
             ? Math.round(returnedVal?.current.temp_c) < 0

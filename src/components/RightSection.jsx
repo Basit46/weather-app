@@ -13,7 +13,7 @@ const RightSection = () => {
   } = useWeatherContext();
 
   return (
-    <div className="relative w-[35%] pl-[60px] backdrop-blur-[10px]">
+    <div className="relative h-screen w-full md:w-[45%] lg:w-[35%] pl-[10px] sm:pl-[60px] backdrop-blur-[10px]">
       <form onSubmit={handleSubmit} className="flex justify-between">
         <input
           className="outline-none bg-transparent border-b-white border-b-2 w-full text-white text-[1.3rem] placeholder:text-white"
@@ -40,7 +40,7 @@ const RightSection = () => {
         ))}
       </div>
 
-      <div className="details border-white border-y-2 mr-[60px] text-white py-[30px] cursor-pointer">
+      <div className="details border-white border-y-2 mr-[10px] sm:mr-[60px] text-white py-[30px] cursor-pointer">
         <h1 className="text-[1.5rem] font-bold">Weather Details</h1>
         <div className="detail-wrap">
           <div className="detail">
