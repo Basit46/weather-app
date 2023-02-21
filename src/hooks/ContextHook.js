@@ -21,7 +21,7 @@ const ContextHook = ({ children }) => {
   useEffect(() => {
     axios
       .get(
-        `http://api.weatherapi.com/v1/current.json?key=cfaf7c3504234c8bb7d142654231402&q=london&aqi=no`
+        `https://api.weatherapi.com/v1/current.json?key=cfaf7c3504234c8bb7d142654231402&q=london&aqi=no`
       )
       .then((res) => {
         setLoadError(false);
@@ -41,7 +41,7 @@ const ContextHook = ({ children }) => {
     } else {
       axios
         .get(
-          `http://api.weatherapi.com/v1/current.json?key=cfaf7c3504234c8bb7d142654231402&q=${inputVal.toLowerCase()}&aqi=no`
+          `https://api.weatherapi.com/v1/current.json?key=cfaf7c3504234c8bb7d142654231402&q=${inputVal.toLowerCase()}&aqi=no`
         )
         .then((res) => {
           setLoadError(false);
@@ -64,7 +64,7 @@ const ContextHook = ({ children }) => {
   const handleClickedLoc = (loc) => {
     axios
       .get(
-        `http://api.weatherapi.com/v1/current.json?key=cfaf7c3504234c8bb7d142654231402&q=${loc.toLowerCase()}&aqi=no`
+        `https://api.weatherapi.com/v1/current.json?key=cfaf7c3504234c8bb7d142654231402&q=${loc.toLowerCase()}&aqi=no`
       )
       .then((res) => {
         setLoadError(false);
